@@ -102,7 +102,7 @@ def group_adjust(vals, groups, weights):
     matrix = matrix.transpose()
     df = pd.DataFrame(data=matrix, columns=headings)
     df['quant'] = pd.to_numeric(df['quant'], errors='coerce')
-
+    #just in case python has some obscure copy issues like other languages I know
     df0 = pd.DataFrame(data=matrix, columns=headings)
     df0['quant'] = pd.to_numeric(df0['quant'], errors='coerce')
     tableToConcat = df0
@@ -229,4 +229,5 @@ test_three_groups()
 test_two_groups()
 test_missing_vals()
 test_weights_len_equals_group_len()
+test_group_len_equals_vals_len()
 test_performance()
